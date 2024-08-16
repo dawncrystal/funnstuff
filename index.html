@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You have one new message</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+         
+            
+
+            color: #333;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+        }
+
+        .container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 400px;
+            height: 350px;
+        }
+
+        .envelope {
+            width: 550px;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .envelope:active {
+            transform: scale(1.1); /* Slightly larger on click */
+        }
+
+      
+
+        .message {
+    font-family: 'Fredoka One', cursive;
+    font-size: 40px;
+    color: #333; /* Darker color for better contrast */
+    margin-top: 20px;
+    font-weight: bold;
+   
+    letter-spacing: 1px; /* Adds space between letters for a cleaner look */
+    
+ 
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transitions */
+}
+
+/* Optional: Add hover effect for interactivity */
+.message:hover {
+    color: #c6c7c8; /* Change color on hover for a highlight effect */
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.3), 
+        -2px -2px 4px rgba(255, 255, 255, 0.6);
+}
+
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            50% { transform: translateX(10px); }
+            75% { transform: translateX(-10px); }
+            100% { transform: translateX(0); }
+        }
+
+        @keyframes grow {
+            0% { transform: scale(1); }
+            100% { transform: scale(4.5); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="message">Click to Open</div>
+        <img src="images/red.png" id="envelope" class="envelope" alt="Envelope">
+
+        <div class="message">You have a gift </div>
+    </div>
+
+    <script>
+        document.getElementById('envelope').addEventListener('click', function() {
+            const envelope = this;
+
+            // Apply shake animation
+            envelope.style.animation = 'shake 1.0s ease';
+            
+            // Remove shake animation and apply grow animation after shaking
+            setTimeout(() => {
+                envelope.style.animation = 'none';
+                envelope.style.transition = 'transform 1s ease';
+                envelope.style.animation = 'grow 1s forwards';
+                
+                // Redirect to new page after animation
+                setTimeout(() => {
+                    window.location.href = "happyBday.html"; // Change to your target URL
+                }, 1000); // Wait for grow animation to finish
+            }, 500); // Duration of shake animation
+        });
+    </script>
+</body>
+</html>

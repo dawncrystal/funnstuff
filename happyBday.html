@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise Gift</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+            background: url('images/hbd.jpg') no-repeat center center fixed;
+            background-size: 1000px 950px;
+            color: #333;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+        }
+        .background-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 120px;
+            color: rgba(255, 255, 255, 0.1);
+            font-weight: bold;
+            z-index: 0;
+            white-space: nowrap;
+            pointer-events: none;
+            user-select: none;
+        }
+        .container {
+            position: absolute; /* Change from relative to absolute */
+    bottom: -730px; /* Distance from the bottom of the viewport */
+    right: 20px; /* Distance from the left of the viewport */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start (left) */
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    padding: 20px;
+    border-radius: 15px;
+  
+    width: 450px; /* Adjust as needed */
+    height: auto; /* Auto height to fit content */
+    z-index: 1;
+}
+
+
+        .message {
+            font-family: 'Arial', sans-serif;
+            font-size: 19px;
+            color: #121212;
+            margin-bottom: 2px;
+            font-weight: bold;
+            text-shadow: 
+                1px 1px 0 #fff, /* White shadow on top-right */
+               -1px -1px 0 #fff, /* White shadow on bottom-left */
+                1px -1px 0 #fff, /* White shadow on top-left */
+               -1px 1px 0 #fff; /* White shadow on bottom-right */
+        }
+            
+        
+        .button {
+            background-color: #7cbfe8;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #c9e9ff;
+        }
+
+        .picture {
+    position: absolute;
+    width: 750px; /* Adjust size as needed */
+    height: auto;
+    top: 20px; /* Adjust position as needed */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Shift the image back by 50% of its width */
+    z-index: 1;
+}
+        
+        .balloon {
+            position: absolute;
+            width: 450px; /* Larger size */
+            height: auto;
+            z-index: 0;
+        }
+        .balloon1 {
+            position: absolute;
+            width: 550px; /* Larger size */
+            height: auto;
+            z-index: 0;
+        }
+        .balloon.fixed {
+            top: 10px;
+            width: 250px; /* Size of the fixed balloons */
+        }
+        .balloon.fixed.left {
+            left: 5px;
+        }
+        .balloon.fixed.right {
+            right: 5px;
+        }
+        .balloon.floating {
+            animation: float 5s infinite;
+        }
+        .balloon:nth-child(2) {
+            left: 15%;
+            bottom: 50px;
+            animation-delay: 1s;
+        }
+        .balloon:nth-child(3) {
+            left: 45%;
+            bottom: 100px;
+            animation-delay: 2s;
+        }
+        .balloon:nth-child(4) {
+            left: 75%;
+            bottom: 150px;
+            animation-delay: 3s;
+        }
+
+  .balloon.lower-left {
+            left: -20px; /* Distance from the left */
+            bottom: -1300px; /* Distance from the bottom */
+            animation: float 5s infinite;; /* Optionally disable animation if needed */
+        }
+        .balloon1.lower-right {
+            right: 10px; /* Distance from the left */
+            bottom: -1300px; /* Distance from the bottom */
+            animation: float 5s infinite;; /* Optionally disable animation if needed */
+        }
+  
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-30px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+       
+    </style>
+</head>
+<body>
+    <!-- Audio Element -->
+    <audio id="birthdayAudio" src="sound/songg.mp3" autoplay></audio>S
+
+   
+    <div class="container">
+        <div class="message">Happy Birthday Iddo!!!! 🎉..Have an amazing day :) and I pray that God continues to grant you all your hearts desires. I was supposed to get you cakes but because of the exams I guess every one was busy.But of course I had to do  something.. so I created this website to wish you.I hope you like it :) </div>
+        <div class="message">                                                                                                                                                ~ Maame </div>
+    </div>
+    <!-- Fixed Balloon Images -->
+    <img src="images/balloon2.png" class="balloon fixed left" alt="Balloon">
+    <img src="images/balloon2.png" class="balloon fixed right" alt="Balloon">
+
+    <!-- Floating Balloon Images -->
+    <img src="images/balloon3.png" class="balloon floating lower-left" alt="Balloon">
+    <img src="images/balloon3.png" class="balloon1 floating lower-right" alt="Balloon">
+
+   
+
+ <!-- Include the Canvas Confetti library -->
+ <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+
+ <script>
+
+window.onload = function() {
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 },
+                scalar: 2.0// Adjust this value to make the confetti bigger
+            });
+        };
+
+     function openGift() {
+         // Trigger confetti effect
+         confetti({
+             particleCount: 150,
+             spread: 70,
+             origin: { y: 0.6 },
+             scalar: 2.0
+         });
+
+    
+     }
+ </script>
+</body>
+</html>
